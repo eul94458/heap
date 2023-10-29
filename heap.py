@@ -75,13 +75,11 @@ class Heap:
         idx = self.data.__len__() - 1
         self.dict[x] = idx
         self.up(idx)
-        return self
 
     def appendleft(self, x):
         self.data.appendleft(x)
         self.dict[x] = 0
         self.down([0])
-        return self
 
     def pop(self):
         x = self.data.pop()
@@ -92,8 +90,11 @@ class Heap:
     def popleft(self):
         # Must have at least one element to pop()
         data = self.data
+        dic = self.dict
         if len(data) >= 1:
             data[0], data[-1] = data[-1], data[0]
+            dic[data[0]] = 0
+            del dic[data[-1]]
             out = data.pop()
             if len(data) > 0:
                 self.down(0)
@@ -155,9 +156,9 @@ class Heap:
                     dic[lchild_v] = parent_i
                     parent_i = child_i
                     continue
-            data[child_i] = parent_v
-            dic[parent_v] = child_i
             break
+        data[child_i] = parent_v
+        dic[parent_v] = child_i
 
     def update(self, old_v, new_v):
         dic = self.dict
