@@ -7,7 +7,7 @@ N = 15
 
 for n in range(N):
     A.append(n)
-    print(A.h)
+    print(A.data)
     print(A)
 
 B = A.copy()
@@ -201,5 +201,6 @@ MaxHeap vvvvvvvvvvvv
 ^^^^^^^^^^^^^^^^^^^^
 popleft(0)
 MaxHeap vvvvvvvvvvvv
+^^^^^^^^^^^^^^^^^^^^
 ^^^^^^^^^^^^^^^^^^^^
 ```
